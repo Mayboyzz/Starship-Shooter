@@ -6,6 +6,7 @@ let player;
 let invader;
 let projectile;
 let explosion;
+let enemyHealth = 2;
 console.log(reloadBonus);
 
 function preload() {
@@ -58,12 +59,17 @@ function draw() {
 	for (let enemy of enemies) {
 		for (let bullet of bullets) {
 			if (dist(enemy.x, enemy.y, bullet.x, bullet.y) < 20) {
-				score++;
 				let enemyIndex = enemies.indexOf(enemy);
 				let bulletIndex = bullets.indexOf(bullet);
-				enemies.splice(enemyIndex, 1);
-				bullets.splice(bulletIndex, 1);
-				createEnemy();
+				enemy.hp--;
+				if (enemy.hp === 0) {
+					score++;
+					enemies.splice(enemyIndex, 1);
+					bullets.splice(bulletIndex, 1);
+					createEnemy();
+				} else {
+					bullets.splice(bulletIndex, 1);
+				}
 			}
 		}
 	}
@@ -82,6 +88,7 @@ function createEnemy() {
 	let enemy = {
 		x: random(0, width - 30),
 		y: random(-800, 0),
+		hp: 2,
 	};
 
 	enemies.push(enemy);
