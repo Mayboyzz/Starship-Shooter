@@ -40,7 +40,7 @@ function draw() {
 
 	// Spawn bullets
 	for (let bullet of bullets) {
-		bullet.y -= 25;
+		bullet.y -= 30;
 		image(projectile, bullet.x, bullet.y, 5, 15);
 	}
 
