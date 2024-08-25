@@ -9,8 +9,6 @@ const maxMag = 30;
 let mag = 30;
 let numOfMags = 4;
 
-const levels = { 1: 10, 2: 30 };
-console.log(Object.keys(levels).length);
 function preload() {
 	player = loadImage("/Assets/Sprites/Invaders/space__0006_Player.png");
 	invader = loadImage("/Assets/Sprites/Invaders/space__0004_C1.png");
@@ -24,10 +22,8 @@ function setup() {
 	createCanvas(400, 600);
 	noCursor();
 	// Create enemies
-	for (let i = 0; i < Object.keys(levels).length; i++) {
-		for (let j = 0; j < Object.values(levels)[i]; j++) {
-			createEnemy();
-		}
+	for (let i = 0; i < 10; i++) {
+		createEnemy();
 	}
 }
 
