@@ -5,6 +5,5 @@
 ## TODO:
 ```
 - Powerups and bonuses
-- Magazine feature
 - Wave system where enemy count goes up each wave you complete
 ```
